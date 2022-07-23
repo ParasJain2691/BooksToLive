@@ -12,38 +12,43 @@
 <style>
     .text-white{
         color: white;
+        font-size: 20px;
     }
 </style>
 
 <body style="background-color: black;">
+    <!-- <marquee style="color: white;">This hosting doesn't allow images</marquee> -->
     <nav class="navbar", style="background-color: white;">
-        <a class="navbar-brand">Book Recommendation System</a>
+        <a class="navbar-brand">Book Recommender</a>
         <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <li><a href="/recommend">Recommend</a></li>
-            <li><a>Contact</a></li>
+            <li><a href="/demo">Demo</a></li>
         </ul>
     </nav>
 
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="text-white">Top 50 Books</h1>
+                <h1 class="text-white">Top 20 Books</h1>
             </div>
 
 
-            {% for i in range(book_name|length) %}
-            <div class="col-md-3" style="margin-top: 50px;">
-                <div class="card">
-                    <div class="card-body">
-                        <img class="card-img-top" src="{{ image[i]}}">
-                        <h3 class="text-white">{{ book_name[i] }}</h3>
-                        <p class="text-white">{{ author[i] }}</p>
-                        <p class="text-white">{{ votes[i] }}<p>
-                        <p class="text-white">{{ rating[i] }}</p>
+            {% for i in range(book_name|length)[:20] %}
+                {% if i!=21 %}
+                    <div class="col-md-3" style="margin-top: 50px;">
+                        <div class="card">
+                            <div class="card-body">
+                                <img class="card-img-top" src="{{ image[i]}}">
+                                <h3 class="text-white">{{ book_name[i] }}</h3>
+                                <p class="text-white">{{ author[i] }}</p>
+                                <p class="text-white">{{ votes[i] }}<p>
+                                <p class="text-white">{{ rating[i] }}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                {% endif %}
+            
             {% endfor %}
 
             

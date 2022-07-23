@@ -13,6 +13,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    print(popular_df.values[21])
     return render_template("index.html",
                             book_name = list(popular_df['Book-Title'].values),
                             author = list(popular_df['Book-Author'].values),
@@ -42,6 +43,11 @@ def recommend():
         data.append(item)
     print(data[0][2])
     return render_template('recommend.html',data=data)
+
+@app.route('/demo')
+def demo():
+    return render_template('demo.html')
+
 
 
 if __name__=="__main__":
