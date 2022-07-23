@@ -3,10 +3,10 @@ from flask import Flask, render_template, request
 import pickle
 import numpy as np
 
-popular_df = pickle.load(open('popularHttps.pkl', 'rb'))
-pt = pickle.load(open('pt.pkl', 'rb'))
-books = pickle.load(open('booksHttps.pkl', 'rb'))
-similarity_scores = pickle.load(open('similarity_scores.pkl', 'rb'))
+popular_df = pickle.load(open('popularfinal.pkl', 'rb'))
+pt = pickle.load(open('ptFinal.pkl', 'rb'))
+books = pickle.load(open('booksFinal.pkl', 'rb'))
+similarity_scores = pickle.load(open('similarity_scoresFinal.pkl', 'rb'))
 
 
 app = Flask(__name__)
